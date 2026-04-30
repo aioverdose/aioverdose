@@ -40,25 +40,51 @@ export default function HomePage() {
 
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
             AI search systems (ChatGPT, Perplexity, Google AI Overviews) cite web content differently than traditional search engines.
-            Check your page's AI readiness and get actionable improvements.
+            Our free audit analyzes 6 critical categories with 50+ checks to evaluate your page's <strong className="text-gray-900 dark:text-white">AI readiness</strong> and provide actionable improvements based on recommendations from{' '}
+            <a
+              href="https://schema.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+            >
+              Schema.org
+            </a>
+            , <a
+              href="https://search.google.com/search-console"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+            >
+              Google Search Console
+            </a>
+            , and AI search best practices.
           </p>
 
           {/* Author Byline & Trust Signals */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-            <div className="text-left">
-              <p className="text-sm font-medium text-gray-900 dark:text-white">
-                By aioverdose <span className="text-gray-500">•</span> AI Search Specialists
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 border-t border-gray-200 dark:border-gray-800">
+            <div className="text-left space-y-1">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                By <strong>aioverdose</strong>
               </p>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Updated April 2026 • Free tool for creators & marketers
+                <strong>Expertise:</strong> AI Search Optimization, Generative Engine Optimization (GEO), Content Strategy
+              </p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                <strong>Focus:</strong> Helping creators optimize content for AI search systems
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-500">
+                Last updated: April 2026
               </p>
             </div>
-            <div className="flex gap-3 text-xs">
-              <span className="px-2 py-1 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded">
+            <div className="flex flex-col gap-2 text-xs">
+              <span className="px-3 py-1 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded font-medium">
                 ✓ GDPR Compliant
               </span>
-              <span className="px-2 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded">
-                ✓ No Signup
+              <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded font-medium">
+                ✓ No Signup Required
+              </span>
+              <span className="px-3 py-1 bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400 rounded font-medium">
+                ✓ Independent Tool
               </span>
             </div>
           </div>
@@ -170,6 +196,48 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-gray-200 dark:border-gray-800">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+          Common Questions
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {[
+            {
+              q: 'What is AI search readiness?',
+              a: 'It\'s how well your content is optimized for citation by AI systems like ChatGPT, Perplexity, and Google AI Overviews. Our audit checks 50+ factors across structure, schema, content, trust signals, and more.',
+            },
+            {
+              q: 'Why does this matter?',
+              a: 'AI systems are reshaping how people discover information. If your content isn\'t optimized for AI extraction, you\'re missing citations and visibility. Our tool helps you fix that.',
+            },
+            {
+              q: 'Is the audit free?',
+              a: 'Yes, completely free. No signup, no credit card, no limits. We believe everyone should have access to AI search optimization tools.',
+            },
+            {
+              q: 'What will I learn?',
+              a: 'You\'ll get a score (0-100), detailed category breakdowns, and a prioritized action plan with specific improvements you can make in minutes or hours.',
+            },
+          ].map((item, idx) => (
+            <div key={idx} className="space-y-2">
+              <h3 className="font-semibold text-gray-900 dark:text-white">{item.q}</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                {item.a}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-12">
+          More questions?{' '}
+          <Link href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+            Check our full FAQ
+          </Link>
+        </p>
       </section>
 
       {/* CTA Section */}

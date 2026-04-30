@@ -50,6 +50,29 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Home',
+                  item: 'https://aioverdose.com',
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: 'Tools',
+                  item: 'https://aioverdose.com/tools',
+                },
+              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
               '@type': 'Article',
               headline: 'AI Search Readiness Audit Tool',
               description:
