@@ -15,6 +15,25 @@ export const metadata: Metadata = {
   },
 };
 
+const homepageFaqs = [
+  {
+    q: 'What is AI search readiness?',
+    a: 'It\'s how well your content is optimized for citation by AI systems like ChatGPT, Perplexity, and Google AI Overviews. Our audit checks 50+ factors across structure, schema, content, trust signals, and more.',
+  },
+  {
+    q: 'Why does this matter?',
+    a: 'AI systems are reshaping how people discover information. If your content isn\'t optimized for AI extraction, you\'re missing citations and visibility. Our tool helps you fix that.',
+  },
+  {
+    q: 'Is the audit free?',
+    a: 'Yes, completely free. No signup, no credit card, no limits. We believe everyone should have access to AI search optimization tools.',
+  },
+  {
+    q: 'What will I learn?',
+    a: 'You\'ll get a score (0-100), detailed category breakdowns, and a prioritized action plan with specific improvements you can make in minutes or hours.',
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
@@ -38,9 +57,17 @@ export default function HomePage() {
             Is your content <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">AI-ready</span>?
           </h1>
 
+          {/* Summary Section - For AI Extraction */}
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-6">
+            <p className="text-gray-900 dark:text-white font-semibold mb-2">What is AI Search Readiness?</p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              AI search readiness measures how well your web content is optimized for citation by AI systems like ChatGPT, Perplexity, and Google AI Overviews. Our free tool analyzes structure, schema markup, content extractability, trust signals, and technical factors to score your page 0-100 and provide prioritized improvements.
+            </p>
+          </div>
+
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-            AI search systems (ChatGPT, Perplexity, Google AI Overviews) cite web content differently than traditional search engines.
-            Our free audit analyzes 6 critical categories with 50+ checks to evaluate your page's <strong className="text-gray-900 dark:text-white">AI readiness</strong> and provide actionable improvements based on recommendations from{' '}
+            AI search systems cite web content differently than traditional search engines.
+            Get your AI readiness score and actionable improvements based on recommendations from{' '}
             <a
               href="https://schema.org"
               target="_blank"
@@ -204,25 +231,27 @@ export default function HomePage() {
           Common Questions
         </h2>
 
+        {/* FAQPage Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: homepageFaqs.map((item) => ({
+                '@type': 'Question',
+                name: item.q,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: item.a,
+                },
+              })),
+            }),
+          }}
+        />
+
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {[
-            {
-              q: 'What is AI search readiness?',
-              a: 'It\'s how well your content is optimized for citation by AI systems like ChatGPT, Perplexity, and Google AI Overviews. Our audit checks 50+ factors across structure, schema, content, trust signals, and more.',
-            },
-            {
-              q: 'Why does this matter?',
-              a: 'AI systems are reshaping how people discover information. If your content isn\'t optimized for AI extraction, you\'re missing citations and visibility. Our tool helps you fix that.',
-            },
-            {
-              q: 'Is the audit free?',
-              a: 'Yes, completely free. No signup, no credit card, no limits. We believe everyone should have access to AI search optimization tools.',
-            },
-            {
-              q: 'What will I learn?',
-              a: 'You\'ll get a score (0-100), detailed category breakdowns, and a prioritized action plan with specific improvements you can make in minutes or hours.',
-            },
-          ].map((item, idx) => (
+          {homepageFaqs.map((item, idx) => (
             <div key={idx} className="space-y-2">
               <h3 className="font-semibold text-gray-900 dark:text-white">{item.q}</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
