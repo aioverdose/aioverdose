@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import ToastProvider from '@/components/shared/ToastProvider';
 
 export const metadata: Metadata = {
   title: 'AI Search Readiness Audit',
@@ -49,6 +50,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
+        <ToastProvider />
       </body>
     </html>
   );

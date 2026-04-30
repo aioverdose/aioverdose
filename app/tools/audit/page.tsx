@@ -18,6 +18,8 @@ import { ScoreCircle } from '@/components/audit/ScoreCircle';
 import { CategoryCard } from '@/components/audit/CategoryCard';
 import { ActionPlan } from '@/components/audit/ActionPlan';
 import { ExportMenu } from '@/components/audit/ExportMenu';
+import PDFExport from '@/components/audit/PDFExport';
+import CompetitorComparison from '@/components/audit/CompetitorComparison';
 import { AuditResult } from '@/types/audit';
 
 const categoryIcons = {
@@ -243,6 +245,17 @@ export default function AuditPage() {
                         </p>
                       </div>
                     </motion.div>
+
+                    {/* PDF Export Button */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.8, duration: 0.5 }}
+                    >
+                      <div className="mt-6">
+                        <PDFExport auditResult={result} />
+                      </div>
+                    </motion.div>
                   </div>
                 </motion.div>
 
@@ -260,6 +273,18 @@ export default function AuditPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Competitor Comparison */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Competitive Analysis</h2>
+                  <CompetitorComparison yourResult={result} />
+                </div>
+              </motion.div>
 
               {/* Action Plan */}
               <ActionPlan items={result.actionPlan} />
