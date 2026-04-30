@@ -45,6 +45,34 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: 'AI Search Readiness Audit Tool',
+              description:
+                'Free tool to analyze your web content for AI search engine compatibility. Optimize for ChatGPT, Perplexity, Google AI Overviews, and Gemini.',
+              image: 'https://aioverdose.com/og-image.png',
+              datePublished: '2026-04-15T00:00:00Z',
+              dateModified: new Date().toISOString(),
+              author: {
+                '@type': 'Organization',
+                name: 'aioverdose',
+                url: 'https://aioverdose.com',
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: 'aioverdose',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://aioverdose.com/logo.png',
+                },
+              },
+            }),
+          }}
+        />
       </head>
       <body className="antialiased flex flex-col min-h-screen">
         <main className="flex-1">{children}</main>

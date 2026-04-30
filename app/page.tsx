@@ -1,5 +1,19 @@
 import Link from 'next/link';
 import { ArrowRight, Zap, BarChart3, Target } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'AI Search Readiness Audit - Free Tool for ChatGPT, Perplexity, Google AI',
+  description:
+    'Check if your web content is optimized for AI search systems. Free AI Search Readiness Audit analyzes 6 categories with 50+ checks. No signup required.',
+  keywords:
+    'AI search, GEO, generative engine optimization, ChatGPT, Perplexity, Google AI Overviews, content optimization',
+  openGraph: {
+    title: 'AI Search Readiness Audit',
+    description: 'Is your content AI-ready? Check now with our free audit tool.',
+    type: 'website',
+  },
+};
 
 export default function HomePage() {
   return (
@@ -28,6 +42,26 @@ export default function HomePage() {
             AI search systems (ChatGPT, Perplexity, Google AI Overviews) cite web content differently than traditional search engines.
             Check your page's AI readiness and get actionable improvements.
           </p>
+
+          {/* Author Byline & Trust Signals */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-gray-200 dark:border-gray-800">
+            <div className="text-left">
+              <p className="text-sm font-medium text-gray-900 dark:text-white">
+                By aioverdose <span className="text-gray-500">•</span> AI Search Specialists
+              </p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Updated April 2026 • Free tool for creators & marketers
+              </p>
+            </div>
+            <div className="flex gap-3 text-xs">
+              <span className="px-2 py-1 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded">
+                ✓ GDPR Compliant
+              </span>
+              <span className="px-2 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded">
+                ✓ No Signup
+              </span>
+            </div>
+          </div>
 
           <Link
             href="/tools/audit"

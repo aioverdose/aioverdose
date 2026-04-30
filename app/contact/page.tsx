@@ -7,9 +7,55 @@ export const metadata: Metadata = {
   description: "Get in touch with the aioverdose team. Questions about our AI search audit tool? We're here to help.",
 };
 
+const faqData = [
+  {
+    question: 'What is the AI Search Readiness Audit?',
+    answer:
+      'The AI Search Readiness Audit is a free tool that analyzes your webpage across 6 critical categories to evaluate how well your content is optimized for AI search systems like ChatGPT, Perplexity, Google AI Overviews, and Gemini.',
+  },
+  {
+    question: 'Is the audit tool really free?',
+    answer:
+      'Yes, the AI Search Readiness Audit is completely free with no signup required.',
+  },
+  {
+    question: 'How long does an audit take?',
+    answer:
+      'Most audits complete in 2-5 seconds, depending on your page size.',
+  },
+  {
+    question: 'Does a high audit score guarantee AI visibility?',
+    answer:
+      'No. A high score indicates your page is well-optimized for AI systems, but AI algorithms are controlled by third parties.',
+  },
+  {
+    question: 'What if I get a CORS error?',
+    answer:
+      'CORS errors occur when a website blocks external requests. Switch to the Paste HTML tab and copy/paste your page source directly.',
+  },
+];
+
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqData.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-16">
