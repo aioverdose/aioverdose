@@ -44,6 +44,7 @@ export default function AuditPage() {
   const [result, setResult] = useState<AuditResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mode, setMode] = useState<'business' | 'portfolio'>('business');
 
   const handleAudit = async (data: { url?: string; html?: string }) => {
     setLoading(true);
@@ -94,6 +95,42 @@ export default function AuditPage() {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Mode Toggle */}
+        {!result && (
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex rounded-lg border border-gray-200 dark:border-gray-700 p-1 bg-gray-100 dark:bg-gray-800">
+              <button
+                onClick={() => {
+                  setMode('business');
+                  setResult(null);
+                  setError(null);
+                }}
+                className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                  mode === 'business'
+                    ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
+                    : 'text-gray-600 dark:text-gray-400'
+                }`}
+              >
+                🏢 Business Website
+              </button>
+              <button
+                onClick={() => {
+                  setMode('portfolio');
+                  setResult(null);
+                  setError(null);
+                }}
+                className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                  mode === 'portfolio'
+                    ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
+                    : 'text-gray-600 dark:text-gray-400'
+                }`}
+              >
+                👤 My Portfolio
+              </button>
+            </div>
+          </div>
+        )}
+
         <AnimatePresence mode="wait">
           {!result && !loading && !error && (
             <motion.div
@@ -110,9 +147,15 @@ export default function AuditPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-                    AI Search Readiness Audit
-                  </h1>
+                  {mode === 'business' ? (
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                      AI Search Readiness Audit
+                    </h1>
+                  ) : (
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                      Career Visibility Audit
+                    </h1>
+                  )}
                 </motion.div>
 
                 <motion.div
@@ -120,9 +163,15 @@ export default function AuditPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                    Is your page built to be cited by AI? Check how ChatGPT, Perplexity, and Google AI Overviews see your content.
-                  </p>
+                  {mode === 'business' ? (
+                    <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                      Is your page built to be cited by AI? Check how ChatGPT, Perplexity, and Google AI Overviews see your content.
+                    </p>
+                  ) : (
+                    <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                      AI systems now decide who gets interviews. Audit your portfolio and LinkedIn to ensure you're AI-visible and findable.
+                    </p>
+                  )}
                 </motion.div>
 
                 {/* AI Systems */}
