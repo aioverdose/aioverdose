@@ -42,6 +42,30 @@ export default function RootLayout({
                 '@type': 'ContactPoint',
                 email: 'hello@aioverdose.com',
               },
+              founder: {
+                '@type': 'Person',
+                name: 'aioverdose',
+                url: 'https://aioverdose.com',
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'aioverdose',
+              url: 'https://aioverdose.com',
+              jobTitle: 'AI Search Optimization Specialist',
+              description: 'Expert in AI Search Optimization and Generative Engine Optimization (GEO)',
+              expertise: ['AI Search Optimization', 'Schema Markup', 'Generative Engine Optimization', 'Content Strategy'],
+              sameAs: [
+                'https://twitter.com/aioverdose',
+                'https://linkedin.com/company/aioverdose',
+              ],
+              knowsAbout: ['ChatGPT', 'Perplexity', 'Google AI Overviews', 'Gemini', 'Content Optimization', 'Schema.org'],
             }),
           }}
         />

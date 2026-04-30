@@ -11,27 +11,27 @@ const faqData = [
   {
     question: 'What is the AI Search Readiness Audit?',
     answer:
-      'The AI Search Readiness Audit is a free tool that analyzes your webpage across 6 critical categories to evaluate how well your content is optimized for AI search systems like ChatGPT, Perplexity, Google AI Overviews, and Gemini.',
+      'The AI Search Readiness Audit is a free tool that analyzes your webpage across 6 critical categories—Structure & Hierarchy, Schema Markup, Content Extractability, FAQ & Q&A Blocks, Trust & Authority, and Technical Readability—to evaluate how well your content is optimized for AI search systems like ChatGPT, Perplexity, Google AI Overviews, and Gemini. The audit runs 50+ specialized checks and returns a 0-100 score with detailed category breakdowns and a prioritized action plan showing exactly what to improve for better AI search visibility.',
   },
   {
     question: 'Is the audit tool really free?',
     answer:
-      'Yes, the AI Search Readiness Audit is completely free with no signup required.',
+      'Yes, the AI Search Readiness Audit is completely free with no signup required, no credit card needed, and no hidden fees. We offer it as an educational tool to help creators, publishers, and marketers understand how AI search systems evaluate web content. Our mission is making AI search optimization transparent and accessible to everyone, regardless of technical background or budget.',
   },
   {
     question: 'How long does an audit take?',
     answer:
-      'Most audits complete in 2-5 seconds, depending on your page size.',
+      'Most audits complete in 2-5 seconds, depending on your page size and complexity. If you paste HTML directly, results appear almost instantly since the analysis happens locally in your browser. If you submit a URL, our tool fetches the page and analyzes it server-side, which typically takes 3-5 seconds. If you encounter timeout issues, try pasting HTML directly instead.',
   },
   {
     question: 'Does a high audit score guarantee AI visibility?',
     answer:
-      'No. A high score indicates your page is well-optimized for AI systems, but AI algorithms are controlled by third parties.',
+      'No. A high score indicates your page is well-optimized for AI systems based on published best practices and official guidelines, but it does not guarantee citations or visibility. AI algorithms are controlled by third parties (OpenAI, Google, Perplexity) and change constantly. The audit measures technical readiness and alignment with AI search best practices, not guaranteed results. See our disclaimer for complete details.',
   },
   {
     question: 'What if I get a CORS error?',
     answer:
-      'CORS errors occur when a website blocks external requests. Switch to the Paste HTML tab and copy/paste your page source directly.',
+      'CORS (Cross-Origin Resource Sharing) errors occur when a website blocks external requests from browser-based tools. This is a security feature built into the website, not a problem with our audit tool. To work around CORS errors, switch to the "Paste HTML" tab and copy/paste your page\'s HTML source directly. This method works for all pages, including password-protected ones, and often provides faster results since analysis happens locally without network requests.',
   },
 ];
 
