@@ -103,7 +103,7 @@ export default function RootLayout({
                 'Free tool to analyze your web content for AI search engine compatibility. Optimize for ChatGPT, Perplexity, Google AI Overviews, and Gemini.',
               image: 'https://aioverdose.com/og-image.png',
               datePublished: '2026-04-15T00:00:00Z',
-              dateModified: new Date().toISOString(),
+              dateModified: '2026-04-30T00:00:00Z',
               author: {
                 '@type': 'Organization',
                 name: 'aioverdose',
