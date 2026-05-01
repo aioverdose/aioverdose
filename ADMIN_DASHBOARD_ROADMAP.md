@@ -59,8 +59,8 @@
 ADMIN_PASSWORD=your-secret-password
 ADMIN_SESSION_SECRET=32-character-random-string
 
-# Claude API
-ANTHROPIC_API_KEY=sk-ant-...
+# Dev Agent - OpenRouter API
+OPENROUTER_API_KEY=sk-or-...
 
 # GitHub API
 GITHUB_TOKEN=ghp_...

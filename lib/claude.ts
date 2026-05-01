@@ -1,4 +1,3 @@
-import Anthropic from '@anthropic-ai/sdk';
 import { getRepoTree, getFileContents } from './github';
 
 interface FileChange {
@@ -12,9 +11,8 @@ interface DevAgentResponse {
   files: FileChange[];
 }
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1';
 
 async function buildSystemPrompt(): Promise<string> {
   try {
@@ -98,27 +96,50 @@ export async function generateCodeChanges(
   userMessage: string
 ): Promise<DevAgentResponse> {
   try {
+    if (!OPENROUTER_API_KEY) {
+      throw new Error('OpenRouter API key not configured');
+    }
+
     const systemPrompt = await buildSystemPrompt();
 
-    const response = await client.messages.create({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 4096,
-      system: systemPrompt,
-      messages: [
-        {
-          role: 'user',
-          content: userMessage,
-        },
-      ],
+    const response = await fetch(`${OPENROUTER_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+        'HTTP-Referer': 'https://aioverdose.com',
+        'X-Title': 'aioverdose',
+      },
+      body: JSON.stringify({
+        model: 'openrouter/auto',
+        messages: [
+          {
+            role: 'system',
+            content: systemPrompt,
+          },
+          {
+            role: 'user',
+            content: userMessage,
+          },
+        ],
+        max_tokens: 4096,
+      }),
     });
 
-    const content = response.content[0];
-    if (content.type !== 'text') {
-      throw new Error('Unexpected response type from Claude');
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`OpenRouter API error: ${errorData.error?.message || response.statusText}`);
+    }
+
+    const data = await response.json();
+    const content = data.choices?.[0]?.message?.content;
+
+    if (!content) {
+      throw new Error('No response content from OpenRouter');
     }
 
     // Extract JSON from the response
-    const jsonMatch = content.text.match(/\{[\s\S]*\}/);
+    const jsonMatch = content.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
       throw new Error('No JSON found in response');
     }
