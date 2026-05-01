@@ -35,19 +35,6 @@ export default function AiCitablePortfolioGuide() {
               How to Build an AI-Citable Portfolio After Layoff
             </h1>
 
-            <div className="flex items-start gap-4 py-6 border-t border-gray-200 dark:border-gray-700 pt-6">
-              <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary font-bold text-lg flex-shrink-0">
-                M
-              </div>
-              <div className="flex-1">
-                <p className="font-semibold text-gray-900 dark:text-white">Marcus Chen</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Founder, aioverdose</p>
-                <div className="flex gap-4 mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  <time dateTime="2026-04-15">Published: April 15, 2026</time>
-                  <time dateTime="2026-04-30">Updated: April 30, 2026</time>
-                </div>
-              </div>
-            </div>
           </header>
 
           <div className="prose prose-invert max-w-none space-y-8 text-gray-700 dark:text-gray-300">

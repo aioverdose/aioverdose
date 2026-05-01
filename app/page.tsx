@@ -412,39 +412,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Author Byline */}
-        <section className="py-12 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-          <div className="max-w-3xl mx-auto px-4">
-            <div className="flex items-start gap-4" itemScope itemType="https://schema.org/Person">
-              <div className="w-14 h-14 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary font-bold text-xl flex-shrink-0">
-                M
-              </div>
-              <div className="flex-1">
-                <p className="font-semibold text-lg text-gray-900 dark:text-white" itemProp="name">Marcus Chen</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400" itemProp="jobTitle">
-                  Founder & Lead Strategist, aioverdose
-                </p>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1" itemProp="description">
-                  <strong>Expertise:</strong> AI Search Optimization, Generative Engine Optimization (GEO), Content Strategy. <strong>Experience:</strong> 8+ years in search marketing, previously led SEO at two B2B SaaS companies. Specializes in helping creators and businesses adapt to AI-driven discovery.
-                </p>
-                <div className="flex gap-4 mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  <time dateTime="2026-04-01" itemProp="datePublished">
-                    Published: April 1, 2026
-                  </time>
-                  <time dateTime="2026-04-30" itemProp="dateModified">
-                    Updated: April 30, 2026
-                  </time>
-                </div>
-                <p className="text-sm mt-2">
-                  <a href="/about" className="text-primary hover:underline" itemProp="url">
-                    Full bio & editorial policy →
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Editorial Policy */}
         <div className="max-w-3xl mx-auto px-4 py-4 text-sm text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
           <p>
