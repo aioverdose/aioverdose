@@ -1,19 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getIronSession } from 'iron-session';
-import { AdminSession } from '@/lib/admin-auth';
 
-const sessionConfig = {
-  password: process.env.ADMIN_SESSION_SECRET || 'default-insecure-password-change-this',
-  cookieName: 'admin_session',
-  cookieOptions: {
-    secure: process.env.NODE_ENV === 'production',
-    httpOnly: true,
-    sameSite: 'strict' as const,
-    maxAge: 24 * 60 * 60,
-  },
-};
-
-export async function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {
   // Protect /admin/* and /api/admin/* routes (except /login)
   const pathname = request.nextUrl.pathname;
 
@@ -23,9 +10,10 @@ export async function middleware(request: NextRequest) {
   const isAuthEndpoint = pathname === '/api/admin/auth';
 
   if ((isAdminRoute || isAdminApiRoute) && !isLoginPage && !isAuthEndpoint) {
-    const session = await getIronSession<AdminSession>(request.cookies, sessionConfig);
+    // Check for admin session cookie
+    const sessionCookie = request.cookies.get('admin_session');
 
-    if (!session.isAdmin) {
+    if (!sessionCookie) {
       // Redirect to login for non-API routes
       if (isAdminRoute) {
         return NextResponse.redirect(new URL('/login', request.url));

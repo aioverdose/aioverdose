@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { ArrowRight, CheckCircle2, AlertCircle, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Career Visibility Audit — Make Sure AI Can Find You | aioverdose',

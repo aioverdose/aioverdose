@@ -1,10 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Home,
   FileText,
-  Settings,
-  Inbox,
   Code2,
   ChevronRight,
   LogOut,

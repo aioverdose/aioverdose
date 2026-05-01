@@ -30,12 +30,13 @@ async function writeGuides(guides: Guide[]): Promise<void> {
 }
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
+  _request: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const guides = await readGuides();
-    const guide = guides.find((g) => g.slug === params.slug);
+    const guide = guides.find((g) => g.slug === slug);
 
     if (!guide) {
       return NextResponse.json({ error: 'Guide not found' }, { status: 404 });
@@ -52,12 +53,13 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const body = await request.json();
     const guides = await readGuides();
-    const index = guides.findIndex((g) => g.slug === params.slug);
+    const index = guides.findIndex((g) => g.slug === slug);
 
     if (index === -1) {
       return NextResponse.json({ error: 'Guide not found' }, { status: 404 });
@@ -86,12 +88,13 @@ export async function PUT(
 }
 
 export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
+  _request: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const guides = await readGuides();
-    const filteredGuides = guides.filter((g) => g.slug !== params.slug);
+    const filteredGuides = guides.filter((g) => g.slug !== slug);
 
     if (guides.length === filteredGuides.length) {
       return NextResponse.json({ error: 'Guide not found' }, { status: 404 });

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Zap, BarChart3, Target } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import JsonLd from '@/components/shared/JsonLd';
 import { BreadcrumbSchema } from '@/components/shared/BreadcrumbSchema';

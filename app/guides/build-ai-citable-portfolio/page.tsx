@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'How to Build an AI-Citable Portfolio After Layoff | aioverdose',
