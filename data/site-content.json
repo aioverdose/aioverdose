@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "title": "Is your content AI-ready?",
+    "subtitle": "AI search systems cite web content differently than traditional search engines.",
+    "cta": "Start Free Audit"
+  },
+  "faqs": [
+    {
+      "question": "What is AI Search Readiness?",
+      "answer": "AI Search Readiness measures how well your web content is optimized for citation by AI systems."
+    }
+  ]
+}

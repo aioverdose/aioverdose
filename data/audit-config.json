@@ -1,0 +1,15 @@
+{
+  "weights": {
+    "structure": 0.2,
+    "schema": 0.2,
+    "content": 0.2,
+    "faq": 0.15,
+    "trust": 0.15,
+    "technical": 0.1
+  },
+  "thresholds": {
+    "pass": 70,
+    "warning": 50,
+    "fail": 0
+  }
+}
