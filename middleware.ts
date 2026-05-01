@@ -14,12 +14,12 @@ const sessionConfig = {
 };
 
 export async function middleware(request: NextRequest) {
-  // Protect /admin/* and /api/admin/* routes (except /admin/login)
+  // Protect /admin/* and /api/admin/* routes (except /login)
   const pathname = request.nextUrl.pathname;
 
   const isAdminRoute = pathname.startsWith('/admin');
   const isAdminApiRoute = pathname.startsWith('/api/admin');
-  const isLoginPage = pathname === '/admin/login';
+  const isLoginPage = pathname === '/login';
   const isAuthEndpoint = pathname === '/api/admin/auth';
 
   if ((isAdminRoute || isAdminApiRoute) && !isLoginPage && !isAuthEndpoint) {
@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
     if (!session.isAdmin) {
       // Redirect to login for non-API routes
       if (isAdminRoute) {
-        return NextResponse.redirect(new URL('/admin/login', request.url));
+        return NextResponse.redirect(new URL('/login', request.url));
       }
       // Return 401 for API routes
       return new NextResponse(
